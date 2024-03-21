@@ -65,7 +65,7 @@ def submit_feedback():
               currently responding to " + sentiment + " feedback."},
             {"role": "system", "content": "Keep your responses short, concise\
               and straight forward. Do not prompt customers to provide more\
-              feedback about their experience."},
+              feedback about their experience, simply acknowledge them."},
             {"role": "user", "content": "This product sucks."},
             {"role": "user", "content": "We're really sorry to hear that\
               you're not happy with your purchase. We value your feedback\
