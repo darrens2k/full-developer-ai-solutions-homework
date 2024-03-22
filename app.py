@@ -15,16 +15,16 @@ app = Flask(__name__)
 # Will not throw an error if a .env file is not found
 load_dotenv()
 
-# Azure Text Analytics configuration
-text_analytics_key = os.environ.get('TEXT_ANALYTICS_API_KEY')
+# Create OpenAI client
+openai_client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
+
+# Gather Azure Text Analytics Credentials
+text_analytics_api_key = os.environ.get('TEXT_ANALYTICS_API_KEY')
 text_analytics_endpoint = os.environ.get('TEXT_ANALYTICS_ENDPOINT')
 # Create Text Analytics client
 text_analytics_client = TextAnalyticsClient(
     endpoint=text_analytics_endpoint,
-    credential=AzureKeyCredential(text_analytics_key))
-
-# Create OpenAI client
-client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
+    credential=AzureKeyCredential(text_analytics_api_key))
 
 # Function to render the main html file
 # Routing to activate when request is made to root URL
@@ -36,7 +36,7 @@ def index():
     # any responses yet
     return render_template('feedback_site.html')
 
-# Function to handle the classification of feedback and response
+# Function to handle the classification of feedback and generation of responses
 # Routing to activate when a POST request is made to the /submit_feedback URL
 
 
@@ -57,7 +57,7 @@ def submit_feedback():
     # * Generating response from GPT-4
     # * Using chat completions API to generate response (completions API is no
     # longer receiving updates)
-    response = client.chat.completions.create(
+    response = openai_client.chat.completions.create(
         # accessing gpt4
         model="gpt-4",
         messages=[

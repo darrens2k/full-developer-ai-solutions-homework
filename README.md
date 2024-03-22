@@ -1,6 +1,6 @@
 # Customer Feedback Web Application
 
-This is a web application that accepts customer feedback, utilizes the Azure Text Analytics API to perform sentiment classification on the feedback and GPT-4 to respond to the customer feedback.
+This is a web application that accepts customer feedback, utilizes the Azure Text Analytics API to perform sentiment classification on the feedback and OpenAI's Chat Completion API to respond to the customer feedback through GPT-4.
 
 This application can either be deployed locally, or hosted on a cloud service.
 
@@ -8,15 +8,15 @@ This application can either be deployed locally, or hosted on a cloud service.
 
 * Please ensure that directory structure of this repository is maintained on your local machine after downloading.
 
-* Once within your local python environment, run the following command to install necessary libraries: `pip install -r requirements.txt`
+* Once within your local python environment, run the following command to install the necessary libraries: `pip install -r requirements.txt`
 
-* This application requires that you have Azure Text Analytics API key and endpoint, along with an OpenAI API key. These values must be passed through a .env file that must have the following format:   
+* This application requires that you have an Azure Text Analytics API key and endpoint, along with an OpenAI API key. These values must be passed through a .env file that must have the following format:   
 
       TEXT_ANALYTICS_API_KEY="your azure analytics api key"
       TEXT_ANALYTICS_ENDPOINT="your azure text analytics endpoint"
       OPENAI_API_KEY="your openai api key"
 
-* After configuration and running, the application should be found at: `http://127.0.0.1:5000` or the URL of your local host.
+* After the above configuration has been completed, run the app.py file locally, the application should be found at: `http://127.0.0.1:5000` or the URL of your local host.
 
 ### To Deploy on a Cloud Service
 
