@@ -1,7 +1,5 @@
 # Customer Feedback Web Application
 
-The live deployed version of this application can be found at: https://customer-feedback-page-darren-singh.azurewebsites.net/   
-
 This is a web application that accepts customer feedback, utilizes the Azure Text Analytics API to perform sentiment classification on the feedback and GPT-4 to respond to the customer feedback.
 
 This application can either be deployed locally, or hosted on a cloud service.
