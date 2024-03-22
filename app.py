@@ -18,19 +18,22 @@ load_dotenv()
 # Azure Text Analytics configuration
 text_analytics_key = os.environ.get('TEXT_ANALYTICS_API_KEY')
 text_analytics_endpoint = os.environ.get('TEXT_ANALYTICS_ENDPOINT')
+# Create Text Analytics client
 text_analytics_client = TextAnalyticsClient(
     endpoint=text_analytics_endpoint,
     credential=AzureKeyCredential(text_analytics_key))
 
-# OpenAI configuration
+# Create OpenAI client
 client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
 
-# Function to render the html file
+# Function to render the main html file
 # Routing to activate when request is made to root URL
 
 
 @app.route('/')
 def index():
+    # * For now do not fill in any of the response fields since we do not have
+    # any responses yet
     return render_template('feedback_site.html')
 
 # Function to handle the classification of feedback and response
@@ -48,6 +51,7 @@ def submit_feedback():
     # neutral sentiment)
     sentiment_analysis = text_analytics_client.analyze_sentiment(
         documents=[feedback])[0]
+    # Extract the sentiment
     sentiment = sentiment_analysis.sentiment
 
     # * Generating response from GPT-4
@@ -87,5 +91,6 @@ def submit_feedback():
         detected_sentiment=sentiment)
 
 
+# Launch app when this script is run
 if __name__ == '__main__':
     app.run(debug=False)
