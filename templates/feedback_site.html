@@ -19,14 +19,6 @@
             font-family: Arial, sans-serif; /* Set font family */
         }
 
-        .logo {
-            position: absolute; /* Position logo absolutely in top right*/
-            top: 10px;
-            right: 10px; 
-            width: 150px;
-            height: auto; /* Maintain aspect ratio */
-        }
-
         .dashboard {
             width: 80%; /* Set table width */
             margin: 20px auto 0; /* Center the table horizontally and shift down slightly */
@@ -42,8 +34,7 @@
     </style>
 </head>
 <body>
-    <!--Add in logo-->
-    <img src="/static/BASF_logo_PNG7.png" alt="Logo" class="logo">
+    <!--Create form to accept customer feedback-->
     <h1>Customer Feedback Form</h1>
     <form action="/submit_feedback" method="POST">
         <label for="feedback">Enter your feedback:</label><br>

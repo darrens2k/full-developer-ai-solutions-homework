@@ -71,13 +71,13 @@ def submit_feedback():
               and straight forward. Do not prompt customers to provide more\
               feedback about their experience, simply acknowledge them."},
             {"role": "user", "content": "This product sucks."},
-            {"role": "user", "content": "We're really sorry to hear that\
+            {"role": "assistant", "content": "We're really sorry to hear that\
               you're not happy with your purchase. We value your feedback\
               and we're committed to improving your experience. We'll do our\
               best to address it promptly"},
             {"role": "user", "content": "This product is ok. Not too good or\
               too bad"},
-            {"role": "user", "content": "Thank you for sharing your experience\
+            {"role": "assistant", "content": "Thank you for sharing your experience\
               with us. Your feedback is important as we always strive for\
               improvement."},
             {"role": "user", "content": feedback}
